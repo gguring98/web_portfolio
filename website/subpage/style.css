@@ -1,0 +1,794 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* 헤더 - 수정된 부분 */
+header {
+  background: transparent; /* 완전 투명 배경 */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1001;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+/* 스크롤 시 헤더 스타일 변경을 위한 클래스 (선택사항) */
+header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white; /* 기본 색상을 흰색으로 변경 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* 강한 그림자로 가독성 향상 */
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* 스크롤 시 로고 색상 변경 */
+header.scrolled .logo {
+  color: #004B8D;
+  text-shadow: none;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white; /* 기본 색상을 흰색으로 변경 */
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* 강한 그림자로 가독성 향상 */
+  display: block; padding: 5px;
+}
+
+.nav-menu a:hover {
+  /* color: #5eb4ee; 호버 시 하늘색으로 변경 */
+  border-bottom: #ffffff 2px solid;
+}
+
+header.scrolled .nav-menu a {
+  color: #333;
+  text-shadow: none;
+}
+
+header.scrolled .nav-menu a:hover {
+  color: #1a237e;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white; /* 기본 색상을 흰색으로 변경 */
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* 강한 그림자 추가 */
+}
+
+header.scrolled .hamburger span {
+  background: #333;
+  box-shadow: none;
+}
+
+/* 메인 슬라이드 - 수정된 부분 (헤더 영역까지 포함) */
+.main-slider {
+  position: relative;
+  height: 100vh; /* 전체 화면 높이 */
+  overflow: hidden;
+  margin-top: 0; /* 헤더 마진 제거 */
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* 헤더보다 낮은 z-index */
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* 어두운 오버레이 추가 (텍스트 가독성 향상) */
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.4)
+  ); /* 그라데이션 오버레이 */
+  z-index: 2;
+}
+
+/* 각 슬라이드별 배경 이미지 설정 */
+.slide-1 {
+  background-image: url('./img/tongyeong_bridge.jpg');
+}
+
+.slide-2 {
+  background-image: url('./img/cable-car.png');
+}
+
+.slide-3 {
+  background-image: url('./img/leesunsin2.jpg');
+}
+
+.slide-4 {
+  background-image: url('./img/Tongyeong\ \(1\).jpg');
+}
+
+.slide-5 {
+  background-image: url('./img/skyline_luge.jpg');
+}
+
+.slide-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0; /* 헤더 마진 제거 */
+  height: 100vh; /* 전체 높이 사용 */
+}
+
+.slide-text {
+  color: yellow;
+ 
+}
+
+.slide-text h1 {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  line-height: 1.2;
+  /* 애니메이션 추가 */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInFromBottom 1s ease-out 0.5s forwards;
+}
+
+.slide-text p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.4;
+  /* 애니메이션 추가 */
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInFromLeft 1s ease-out 2s forwards;
+}
+
+
+/* 슬라이드 이미지 부분 제거 */
+.slide-image {
+  display: none;
+}
+
+.cta-button {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a237e;
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* 애니메이션 추가 */
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInFromRight 1s ease-out 1.5s forwards;
+}
+
+.cta-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-3px) translateX(0);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide:not(.active) .slide-text h1,
+.slide:not(.active) .slide-text p,
+.slide:not(.active) .cta-button {
+  opacity: 0;
+  animation: none;
+}
+
+.slide.active .slide-text h1 {
+  animation: slideInFromBottom 1s ease-out 0.5s forwards;
+}
+
+.slide.active .slide-text p {
+  animation: slideInFromLeft 1s ease-out 1s forwards;
+}
+
+.slide.active .cta-button {
+  animation: slideInFromRight 1s ease-out 1.5s forwards;
+}
+
+/* 슬라이드 네비게이션 */
+.slider-nav {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 4;
+}
+
+.nav-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-dot.active {
+  background: white;
+  border-color: white;
+  transform: scale(1.2);
+}
+
+.nav-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 나머지 섹션들 */
+.travel-courses {
+  padding: 5rem 0;
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1a237e;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.product-card {
+  height: 300px;
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  height: 250px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.product-info {
+  background-color: #ffffff00;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1.5rem;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.product-card:hover .product-info {
+  background-color: #f0f0f0be;
+  opacity: 1;
+}
+
+.product-info > h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #1235ff;
+}
+
+.dongpi {
+  width: 100%;
+  object-fit: contain;
+}
+
+.product-info > p {
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+/* 단체투어 */
+.group-tour {
+  padding: 5rem 0;
+  background: rgb(255, 255, 255);
+}
+
+.group-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.group-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a237e;
+}
+
+.group-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.group-image {
+  background: #ffffff;
+  height: 400px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+/* 푸터 */
+footer {
+  background: #1a237e;
+  color: white;
+  padding: 3rem 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-section p,
+.footer-section a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+
+
+.footer-section a:hover {
+  color: white;
+}
+
+/* 플로팅 버튼 */
+.floating-cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1a237e;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  z-index: 1002;
+}
+
+.floating-cart:hover {
+  transform: scale(1.1);
+  background: #303f9f;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .slide-text h1 {
+    font-size: 2.5rem;
+    transform: translateY(20px);
+    animation: slideInFromBottomMobile 1s ease-out 0.5s forwards;
+  }
+
+  .slide-text p {
+    font-size: 1.1rem;
+    transform: translateX(-30px);
+    animation: slideInFromLeftMobile 1s ease-out 1s forwards;
+  }
+
+  .cta-button {
+    transform: translateX(30px);
+    animation: slideInFromRightMobile 1s ease-out 1.5s forwards;
+  }
+
+  .slide.active .slide-text h1 {
+    animation: slideInFromBottomMobile 1s ease-out 0.5s forwards;
+  }
+
+  .slide.active .slide-text p {
+    animation: slideInFromLeftMobile 1s ease-out 1s forwards;
+  }
+
+  .slide.active .cta-button {
+    animation: slideInFromRightMobile 1s ease-out 1.5s forwards;
+  }
+}
+
+/* 모바일용 키프레임 (움직임을 좀 더 작게) */
+@keyframes slideInFromBottomMobile {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeftMobile {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRightMobile {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 1rem;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9); /* 모바일 메뉴는 어두운 배경 */
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  /* 모바일 메뉴는 항상 흰색 텍스트 */
+  .nav-menu a {
+    color: white !important;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-menu a:hover {
+    color: #ffeb3b !important;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .slide-content {
+    padding: 0 1rem;
+    margin-top: 0; /* 모바일에서도 헤더 마진 제거 */
+  }
+
+  .slide-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .slide-text p {
+    font-size: 1.1rem;
+  }
+
+  .slide::before {
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.5)
+    );
+  }
+
+  .slider-nav {
+    bottom: 20px;
+  }
+
+  .nav-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .story-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .story-text h2 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* 애니메이션 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+/* 서브메뉴 기본 스타일 */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1002;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 호버 시 서브메뉴 표시 */
+.nav-menu li:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 서브메뉴 리스트 스타일 */
+.submenu ul {
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+.submenu li {
+  margin: 0;
+}
+
+.submenu a {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: #333 !important;
+  text-shadow: none !important;
+  font-weight: 400;
+  font-size: 0.95rem;
+  border-bottom: none !important;
+  transition: all 0.3s ease;
+}
+
+.submenu a:hover {
+  background: rgba(26, 35, 126, 0.1);
+  color: #1a237e !important;
+  padding-left: 2rem;
+}
+
+/* 메인 메뉴 아이템에 화살표 표시 */
+.has-submenu > a::after {
+  content: '';
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.has-submenu:hover > a::after {
+  transform: rotate(180deg);
+}
+
+/* 스크롤된 헤더에서의 서브메뉴 스타일 */
+header.scrolled .submenu {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+header.scrolled .submenu a {
+  color: #333 !important;
+}
+
+header.scrolled .submenu a:hover {
+  background: rgba(26, 35, 126, 0.1);
+  color: #1a237e !important;
+}
+
+/* 모바일에서 서브메뉴 스타일 */
+@media (max-width: 768px) {
+  .submenu {
+    position: static;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu.active .submenu {
+    opacity: 1;
+    max-height: 300px;
+  }
+
+  .submenu a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    padding-left: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .submenu a:hover {
+    color: #ffeb3b !important;
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 2.5rem;
+  }
+
+  .has-submenu > a::after {
+    content: '▶';
+    float: right;
+  }
+
+  .has-submenu:hover > a::after {
+    transform: rotate(90deg);
+  }
+}

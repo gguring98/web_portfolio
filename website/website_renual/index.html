@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+  <title>통영시티투어 - 자연과 공존하는 아름다운 통영으로 오세요</title>
+  <style>
+   
+  </style>
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header>
+    <div class="header-container"> 
+    <a href="./index.html" class="logo">통영시티투어</a>
+<nav>
+  <ul class="nav-menu">
+    <li class="has-submenu">
+      <a href="./subpage/subpage.html">투어소개</a>
+      <div class="submenu">
+        <ul>
+          <li><a href="#">투어소개</a></li>
+          <li><a href="#">투어 가이드라인</a></li>
+          <li><a href="#">안전수칙</a></li>
+          <li><a href="#">투어 준비사항</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="has-submenu">
+      <a href="#products">여행코스</a>
+      <div class="submenu">
+        <ul>
+          <li><a href="#">역사여행 코스</a></li>
+          <li><a href="#">관광지 관람 코스</a></li>
+          <li><a href="#">놀거리 체험 코스</a></li>
+          <li><a href="#">맞춤형 코스</a></li>
+          <li><a href="#">당일코스</a></li>
+          <li><a href="#">1박2일 코스</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="has-submenu">
+      <a href="#brand">예약/조회</a>
+      <div class="submenu">
+        <ul>
+          <li><a href="#">온라인 예약</a></li>
+          <li><a href="#">예약 조회</a></li>
+          <li><a href="#">예약 변경</a></li>
+          <li><a href="#">예약 취소</a></li>
+          <li><a href="#">단체 예약</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="has-submenu">
+      <a href="#review">리뷰</a>
+      <div class="submenu">
+        <ul>
+          <li><a href="#">고객 후기</a></li>
+          <li><a href="#">리뷰 작성</a></li>
+          <li><a href="#">포토 리뷰</a></li>
+          <li><a href="#">베스트 리뷰</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="has-submenu">
+      <a href="#contact">고객센터</a>
+      <div class="submenu">
+        <ul>
+          <li><a href="#">자주 묻는 질문</a></li>
+          <li><a href="#">1:1 문의</a></li>
+          <li><a href="#">전화 상담</a></li>
+          <li><a href="#">공지사항</a></li>
+          <li><a href="#">이용약관</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 슬라이더 -->
+  <main class="main-slider">
+    <div class="slide active slide-1">
+      <div class="slide-content">
+        <div class="slide-text">
+          <h1>아름다운 통영을 만나다</h1>
+          <p>바다와 섬, 문화가 어우러진 특별한 여행지</p>
+          <a href="#products" class="cta-button">여행하기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide slide-2">
+      <div class="slide-content">
+        <div class="slide-text">
+          <h1>통영 케이블카</h1>
+          <p>아름다운 자연을 한눈에</p>
+          <a href="#products" class="cta-button">지금 예매하기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide slide-3">
+      <div class="slide-content">
+        <div class="slide-text">
+          <h1>역사와 전통을 체험해보세요</h1>
+          <p>통영의 깊은 역사를 느껴보세요</p>
+          <a href="#products" class="cta-button">보러가기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide slide-4">
+      <div class="slide-content">
+        <div class="slide-text">
+          <h1>아름다운 야경과 드라마틱한 경험</h1>
+          <p>환상적인 불빛이 수놓는 통영의 밤</p>
+          <a href="#products" class="cta-button">보러가기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide slide-5">
+      <div class="slide-content">
+        <div class="slide-text">
+          <h1>스카이라인 루지체험</h1>
+          <p>짜릿한 모험과 함께하는 특별한 추억</p>
+          <a href="#products" class="cta-button">지금 예매하기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-nav">
+      <div class="nav-dot active" onclick="currentSlide(1)"></div>
+      <div class="nav-dot" onclick="currentSlide(2)"></div>
+      <div class="nav-dot" onclick="currentSlide(3)"></div>
+      <div class="nav-dot" onclick="currentSlide(4)"></div>
+      <div class="nav-dot" onclick="currentSlide(5)"></div>
+    </div>
+  </main>
+
+  <!-- 여행 코스 -->
+  <section class="travel-courses" id="courses">
+    <div class="container">
+      <h2 class="section-title">여행코스</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="./img/turtle.jpg" alt="거북선">
+          </div>
+            <div class="product-info">
+              <h3>역사여행 코스</h3>
+              <p>통영의 역사와 장관을 볼 수 있는 통영 투어</p>
+            </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="./img/dongpirang.jpg" alt="동피랑 마을" class="dongpi" >
+          </div>
+            <div class="product-info">
+              <h3>관광지 관람 코스</h3>
+              <p>통영의 동피랑 마을부터 야경까지 한눈에!</p>
+            </div>
+          
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+          <img src="./img/adventure.jpg" alt="어드벤처 타워">
+         </div>
+          <div class="product-info">
+            <h3>놀거리 체험 코스</h3>
+            <p>루지와 어드벤처 타워 등 여러 놀거리가 한 곳에!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 단체여행 -->
+  <section class="group-tour" id="package">
+    <div class="container">
+      <div class="group-content">
+        <div class="group-text">
+          <h2>단체여행을 위한 맞춤투어</h2>
+          <h1>통영은 매우 다양한 투어 자원을 갖춘 도시입니다.</h1>
+          <p>아름다운 풍광, 예술적 요인을 갖춘 명소, 역사적인 유적지, 다양한 먹거리가 산재되어있습니다.
+          여행객의 기호에 알맞게 맞추어 제한된 시간에 통영을 여행하실 수 있도록 도와드리겠습니다.</p>
+          <p>※ 장소, 시간에 따라 비용은 달라지지만 정해진 시간을 잘 활용하여 뜻 깊은 여행이 되도록 도와드리겠습니다. ※</p>
+        </div>
+        <div class="group-image">
+          <img src="./img/tongyeong nature.jpg" alt="자연사진" width="530px" height="400px">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>통영시티투어</h3>
+          <p>사업자등록번호 : 612-09-43348</p>
+          <p>주소 : 통영시 동충1길 9 (항남동)</p>
+        </div>
+        <div class="footer-section">
+          <h3>문의전화</h3>
+          <a href="tel:055-644-5464"> <img src="./img/iconphone.svg" alt="아이콘 01"> 055-644-5464</a>
+          <p>평일 09:00 - 18:00</p>
+        </div>
+        <div class="footer-section">
+          <h3>정보</h3>
+          <a href="#">회사소개</a>
+          <a href="#">이용약관</a>
+          <a href="#">개인정보처리방침</a>
+        </div>
+        <div class="footer-section">
+          <h3>SNS</h3>
+          <a href="#">인스타그램</a>
+          <a href="#">페이스북</a>
+          <a href="#">유튜브</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      const scrollY = window.scrollY;
+      
+      // 스크롤이 50px 이상일 때 헤더 배경 적용
+      if (scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // 나머지 기존 JavaScript는 그대로 유지
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.nav-dot');
+
+    function showSlide(index) {
+      // 모든 슬라이드에서 active 클래스 제거
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      // 새로운 슬라이드에 active 클래스 추가
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+    }
+
+    function currentSlide(index) {
+      currentSlideIndex = index - 1;
+      showSlide(currentSlideIndex);
+    }
+
+    function nextSlide() {
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      showSlide(currentSlideIndex);
+    }
+
+    // 자동 슬라이드
+    setInterval(nextSlide, 5000);
+
+    // 햄버거 메뉴
+    document.querySelector('.hamburger').addEventListener('click', function () {
+      document.querySelector('.nav-menu').classList.toggle('active');
+    });
+
+    // 스크롤 애니메이션
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.product-card, .story-text').forEach(el => {
+      observer.observe(el);
+    });
+
+    // 부드러운 스크롤
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
